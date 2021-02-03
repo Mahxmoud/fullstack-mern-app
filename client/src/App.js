@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from "react-redux";
-import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import { Container, AppBar, Grow, Grid } from "@material-ui/core";
 
 import { getCourses } from "./redux/actions/courses";
-import Logo from "./images/Picode white.png";
+import Logo from "./images/Picode white.jpg";
 import Courses from "./components/Courses/Courses";
 import Form from './components/Form/Form'
 import useStyles from './styles'
@@ -21,9 +21,6 @@ export default function App() {
         <div>
             <Container maxwidth='lg'>
                 <AppBar className={ classes.appBar} position='static' color='inherit'>
-                    <Typography className={classes.heading} variant="h2" align='center'>
-                        Picode
-                    </Typography>
                     <img className={classes.image} src={Logo} alt='picode' height='60' />
                 </AppBar>
                 <Grow in>
