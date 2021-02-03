@@ -3,14 +3,15 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
+import courseRoute from './routes/courses.js';
 
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
-
-
 app.use(cors());
+
+app.use('/courses', courseRoute)
 
 const CONNECTION_URL = "mongodb+srv://Mahxmoud:mahxmoud1234@cluster0.orfcx.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
