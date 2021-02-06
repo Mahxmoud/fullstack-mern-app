@@ -15,7 +15,6 @@ const courseSchema = mongoose.Schema({
         default: new Date()
     }
 
-
 })
 
 
