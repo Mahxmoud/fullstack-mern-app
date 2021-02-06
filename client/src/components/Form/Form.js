@@ -9,22 +9,22 @@ import { createCourse, updateCourse } from '../../redux/actions/courses';
 const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles();
 
-        const [courseData, setCourseData] = useState({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
-        const course = useSelector((state) => (currentId ? state.courses.find((description) => description._id === currentId) : null));
-        const dispatch = useDispatch();
+    const [courseData, setCourseData] = useState({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
+    const course = useSelector((state) => (currentId ? state.courses.find((description) => description._id === currentId) : null));
+    const dispatch = useDispatch();
 
-        useEffect(() => {
-            if (course) setCourseData(course);
-        }, [course]);
+    useEffect(() => {
+        if (course) setCourseData(course);
+    }, [course]);
 
-        const clear = () => {
-            // setCurrentId(0);
-            // setCourseData({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
-        };
+    const clear = () => {
+        // setCurrentId(0);
+        // setCourseData({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
+    };
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-            dispatch(createCourse(courseData))
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        dispatch(createCourse(courseData))
         //     if (currentId === 0) {
         //         dispatch(createCourse(courseData));
         //         clear();
@@ -32,12 +32,12 @@ const Form = ({ currentId, setCurrentId }) => {
         //         dispatch(updateCourse(currentId, courseData));
         //         clear();
         //     }
-        };
+    };
 
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">{currentId ? `Editing "${course.title}"` : 'Creating a Course'}</Typography>
+                <Typography variant="h6">{currentId ? `Editing "${course.title}"` : 'Create New Course'}</Typography>
                 <TextField
                     name="instructor"
                     variant="outlined"

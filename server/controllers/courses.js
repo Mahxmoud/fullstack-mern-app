@@ -1,3 +1,4 @@
+import  mongoose from 'mongoose'
 import courseModel from '../models/courseModel.js'
 
 export const getCourses = async (req, res) => {
@@ -18,4 +19,14 @@ export const createCourse = async (req, res) => {
     } catch (err) {
         res.status(409).json({ message: err.message })
     }
+}
+
+export const updateCourse = async (req, res) => {
+    const { id: _id } = req.params;
+    const course = req.body
+    if (!mongoose.Types.ObjectID.isValid(_id)) return res.status(404).send('No course with that id')
+    
+    const updatedCourse = await courseModel.findByIdAndUpdate(_id, course, { new: true })
+    
+    res.json(updateCourse)
 }
