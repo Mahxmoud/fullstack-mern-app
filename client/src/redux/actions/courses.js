@@ -44,7 +44,7 @@ export const deleteCourse = (id) => async (dispatch) => {
         await api.deleteCourse(id);
 
         dispatch({ type: "DELETE", payload: id });
-    } catch (error) {
-        console.log(error.message);
+    } catch (err) {
+        console.log(err.message);
     }
 };

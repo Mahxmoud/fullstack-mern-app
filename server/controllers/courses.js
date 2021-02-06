@@ -1,4 +1,4 @@
-import  mongoose from 'mongoose'
+import mongoose from 'mongoose'
 import courseModel from '../models/courseModel.js'
 
 export const getCourses = async (req, res) => {
@@ -22,11 +22,18 @@ export const createCourse = async (req, res) => {
 }
 
 export const updateCourse = async (req, res) => {
-    const { id: _id } = req.params;
+    const { id } = req.params;
     const course = req.body
-    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No course with that id')
-    
-    const updatedCourse = await courseModel.findByIdAndUpdate(_id, {...course, _id}, { new: true })
-    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No course with that id')
+
+    const updatedCourse = await courseModel.findByIdAndUpdate(id, { ...course, id }, { new: true })
+
     res.json(updatedCourse)
+}
+
+export const deleteCourse = async (req, res) => {
+    const { id} = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No course with that id')
+    await courseModel.findByIdAndRemove(id);
+    res.json({ message: "Course deleted" })
 }
