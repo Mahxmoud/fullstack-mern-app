@@ -24,9 +24,9 @@ export const createCourse = async (req, res) => {
 export const updateCourse = async (req, res) => {
     const { id: _id } = req.params;
     const course = req.body
-    if (!mongoose.Types.ObjectID.isValid(_id)) return res.status(404).send('No course with that id')
+    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No course with that id')
     
-    const updatedCourse = await courseModel.findByIdAndUpdate(_id, course, { new: true })
+    const updatedCourse = await courseModel.findByIdAndUpdate(_id, {...course, _id}, { new: true })
     
-    res.json(updateCourse)
+    res.json(updatedCourse)
 }

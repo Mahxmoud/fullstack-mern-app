@@ -17,13 +17,13 @@ const Course = ({ course, setCurrentId }) => {
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={course.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={course.title} />
             <div className={classes.overlay}>
-                <Typography variant="h6">{course.insturctor}</Typography>
                 <Typography variant="body2">{moment(course.createdAt).fromNow()}</Typography>
             </div>
             <div className={classes.overlay2}>
                 <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(course._id)}><MoreHorizIcon fontSize="default" /></Button>
             </div>
             <div className={classes.details}>
+                <Typography variant="h6">{course.instructor}</Typography>
                 <Typography variant="body2" color="textSecondary" component="h2">{course.tags.map((tag) => `#${tag} `)}</Typography>
             </div>
             <Typography className={classes.title} gutterBottom variant="h5" component="h2">{course.title}</Typography>

@@ -10,7 +10,7 @@ const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles();
 
     const [courseData, setCourseData] = useState({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
-    const course = useSelector((state) => (currentId ? state.courses.find((description) => description._id === currentId) : null));
+    const course = useSelector((state) => (currentId ? state.courses.find((c) => c._id === currentId) : null));
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -18,26 +18,26 @@ const Form = ({ currentId, setCurrentId }) => {
     }, [course]);
 
     const clear = () => {
-        // setCurrentId(0);
-        // setCourseData({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
+        setCurrentId(0);
+        setCourseData({ instructor: '', title: '', description: '', tags: '', selectedFile: '' });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(createCourse(courseData))
-        //     if (currentId === 0) {
-        //         dispatch(createCourse(courseData));
-        //         clear();
-        //     } else {
-        //         dispatch(updateCourse(currentId, courseData));
-        //         clear();
-        //     }
+            if (currentId === 0) {
+                dispatch(createCourse(courseData));
+                clear();
+            } else {
+                dispatch(updateCourse(currentId, courseData));
+                clear();
+            }
     };
 
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">{currentId ? `Editing "${course.title}"` : 'Create New Course'}</Typography>
+                <Typography variant="h6">{currentId ? `Edit "${course.title}"` : 'Create New Course'}</Typography>
                 <TextField
                     name="instructor"
                     variant="outlined"
@@ -75,7 +75,6 @@ const Form = ({ currentId, setCurrentId }) => {
                 />
                 <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setCourseData({ ...courseData, selectedFile: base64 })} /></div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
         </Paper>
     )
