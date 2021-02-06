@@ -9,7 +9,7 @@ export const getCourses = async (req, res) => {
     }
 }
 
-export const createCourses = async (req, res) => {
+export const createCourse = async (req, res) => {
     const course = req.body
     const newCourse = new courseModel(course)
     try {
