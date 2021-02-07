@@ -24,7 +24,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(createCourse(courseData))
             if (currentId === 0) {
                 dispatch(createCourse(courseData));
                 clear();
