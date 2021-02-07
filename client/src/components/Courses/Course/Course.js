@@ -31,8 +31,8 @@ const Course = ({ course, setCurrentId }) => {
                 <Typography variant="body2" color="textSecondary" component="p">{course.description}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => dispatch(likeCourse(course._id))}><StarIcon fontSize="small" /> Like {course.likeCount} </Button>
-                <Button size="small" color="primary" onClick={() => dispatch(deleteCourse(course._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+                <Button size="small" color="primary" onClick={() => dispatch(likeCourse(course._id))}><StarIcon fontSize="small" />&nbsp; Like &nbsp;{course.likeCount} </Button>
+                <Button size="small" color="primary" onClick={() => dispatch(deleteCourse(course._id))}>&nbsp;<DeleteIcon fontSize="small" /> &nbsp; Delete</Button>
             </CardActions>
         </Card>
     );
