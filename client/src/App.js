@@ -17,7 +17,7 @@ export default function App() {
     
     useEffect(() => {
         dispatch(getCourses())
-    }, [currentId, dispatch])
+    }, [])
     return (
         <div>
             <Container maxwidth='lg'>

@@ -2,10 +2,11 @@ import * as api from '../../api'
 
 export const getCourses = () => async (dispatch) => {
     try {
-        const { data } = api.fetchCourses;
+        const { data } = await api.fetchCourses();
         dispatch({ type: 'FETCH_ALL', payload: data })
+        console.log(data)
     } catch (err) {
-        console.log(err.message)
+        console.log(err)
     }
 }
 
