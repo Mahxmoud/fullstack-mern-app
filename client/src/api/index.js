@@ -7,3 +7,4 @@ export const createCourse = (newCourse) => axios.post(url, newCourse)
 export const likeCourse = (id) => axios.patch(`${url}/${id}/likeCourse`);
 export const updateCourse = (id, updatedCourse) => axios.patch(`${url}/${id}`, updatedCourse);
 export const deleteCourse = (id) => axios.delete(`${url}/${id}`);
+export const likePost = (id) => axios.patch(`{url}/${id}/likeCourse`); 

@@ -32,8 +32,16 @@ export const updateCourse = async (req, res) => {
 }
 
 export const deleteCourse = async (req, res) => {
-    const { id} = req.params;
+    const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No course with that id')
     await courseModel.findByIdAndRemove(id);
     res.json({ message: "Course deleted" })
+}
+
+export const likeCourse = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No course with that id')
+    const course = await courseModel.findById(id);
+    const updatedCourse = await courseModel.findByIdAndUpdate(id, { likeCount: course.likeCount + 1 }, { new: true })
+    res.json(updatedCourse)
 }
