@@ -5,35 +5,34 @@ import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 
 import Logo from '../../images/Picode white.jpg';
-// import * as actionType from '../../constants/actionTypes';
+import * as actionType from '../../redux/constants/actionTypes';
 import useStyles from './styles';
 
 const Navbar = () => {
-    // const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-    // const dispatch = useDispatch();
-    // const location = useLocation();
-    // const history = useHistory();
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const history = useHistory();
     const classes = useStyles();
-    const user = null;
     const logout = () => {
-        // dispatch({ type: actionType.LOGOUT });
+        dispatch({ type: actionType.LOGOUT });
 
-        // history.push('/auth');
+        history.push('/auth');
 
-        // setUser(null);
+        setUser(null);
     };
 
-    // useEffect(() => {
-    //     const token = user?.token;
+    useEffect(() => {
+        const token = user?.token;
 
-    //     if (token) {
-    //         const decodedToken = decode(token);
+        if (token) {
+            const decodedToken = decode(token);
 
-    //         if (decodedToken.exp * 1000 < new Date().getTime()) logout();
-    //     }
+            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
 
-    //     setUser(JSON.parse(localStorage.getItem('profile')));
-    // }, [location]);
+        setUser(JSON.parse(localStorage.getItem('profile')));
+    }, [location]);
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
