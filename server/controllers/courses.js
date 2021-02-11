@@ -12,7 +12,7 @@ export const getCourses = async (req, res) => {
 
 export const createCourse = async (req, res) => {
     const course = req.body
-    const newCourse = new courseModel(course)
+    const newCourse = new courseModel({ ...course, instructor: req.userId, createdAt: new Date().toISOString()})
     try {
         await newCourse.save()
         res.status(201).json(newCourse)
@@ -40,8 +40,17 @@ export const deleteCourse = async (req, res) => {
 
 export const likeCourse = async (req, res) => {
     const { id } = req.params;
+
+    if (!req.userId) return res.json({ message: 'Unauthenticated' })
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No course with that id')
     const course = await courseModel.findById(id);
-    const updatedCourse = await courseModel.findByIdAndUpdate(id, { likeCount: course.likeCount + 1 }, { new: true })
+
+    const index = course.likes.findIndex((id) => id == String(req.userId))
+    if (index === -1) {
+        course.likes.push(req.userId)
+    } else {
+        course.likes = course.likes.filter((id) => id !== String(req.userId))
+    }
+    const updatedCourse = await courseModel.findByIdAndUpdate(id, course, { new: true })
     res.json(updatedCourse)
 }
