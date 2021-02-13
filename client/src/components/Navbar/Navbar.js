@@ -7,6 +7,7 @@ import decode from 'jwt-decode';
 import Logo from '../../images/Picode white.png';
 import * as actionType from '../../redux/constants/actionTypes';
 import useStyles from './styles';
+import { getCourses } from '../../redux/actions/courses';
 
 const Navbar = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -17,8 +18,7 @@ const Navbar = () => {
     const logout = () => {
         dispatch({ type: actionType.LOGOUT });
 
-        history.push('/auth');
-
+        history.push('/');
         setUser(null);
     };
 
