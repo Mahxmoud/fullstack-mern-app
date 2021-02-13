@@ -12,7 +12,7 @@ export const getCourses = async (req, res) => {
 
 export const createCourse = async (req, res) => {
     const course = req.body
-    const newCourse = new courseModel({ ...course, instructor: req.userId, createdAt: new Date().toISOString()})
+    const newCourse = new courseModel(course)
     try {
         await newCourse.save()
         res.status(201).json(newCourse)

@@ -13,7 +13,7 @@ const Courses =({ setCurrentId }) => {
          (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {courses.map((course) => (
-                    <Grid key={course._id} item xs={12} sm={6} md={6}>
+                    <Grid key={course._id} item xs={12} sm={4}>
                         <Course course={course} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}

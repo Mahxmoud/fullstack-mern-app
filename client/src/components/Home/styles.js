@@ -17,10 +17,12 @@ export default makeStyles((theme) => ({
         marginLeft: '15px',
         height: 100,
     },
-    [theme.breakpoints.down('sm')]:{
+    [theme.breakpoints.down('sm')]: {
         mainContainer: {
-          direction:'column-reverse'  
+            direction: 'column-reverse'
         },
+    },
+    mainContainer: {
+        minWidth: '800px'
     }
-        
 }))

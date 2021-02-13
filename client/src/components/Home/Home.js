@@ -10,20 +10,21 @@ import useStyles from './styles'
 
 const Home = () => {
     const [currentId, setCurrentId] = useState(null)
+    const user = (JSON.parse(localStorage.getItem('profile')));
     const classes = useStyles()
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getCourses())
-    }, [currentId, dispatch])
+    }, [currentId, dispatch, user])
 
 
     return (
         <div>
-            <Grow in>
+            {user?.result?.isAdmin ? (<Grow in>
                 <Container>
-                    <Grid className={classes.mainContainer} container justify='space-between' alignItems='stretch' spacing={3}>
-                        <Grid item xs={12} sm={7}>
+                    <Grid className={classes.mainContainer} container justify='space-around' alignItems='stretch' spacing={3}>
+                        <Grid item xs={12} sm={8}>
                             <Courses setCurrentId={setCurrentId} />
                         </Grid>
                         <Grid item xs={12} sm={4}>
@@ -31,7 +32,10 @@ const Home = () => {
                         </Grid>
                     </Grid>
                 </Container>
-            </Grow>
+            </Grow>)
+                : <Container>
+                    <Courses setCurrentId={setCurrentId} />
+                </Container >}
         </div>
     )
 }

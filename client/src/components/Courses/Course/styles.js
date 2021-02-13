@@ -16,10 +16,11 @@ export default makeStyles({
     card: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         borderRadius: '15px',
         height: '100%',
         position: 'relative',
+        minWidth: '200px',
     },
     overlay: {
         position: 'absolute',
@@ -49,4 +50,7 @@ export default makeStyles({
         display: 'flex',
         justifyContent: 'space-between',
     },
+    button: {
+        color: '#00ADEF'
+    }
 });
