@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' })
+const API = axios.create({ baseURL: 'https://picode-project.herokuapp.com' })
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
@@ -15,7 +15,7 @@ export const createCourse = (newCourse) => API.post("/courses", newCourse)
 export const likeCourse = (id) => API.patch(`${"/courses"}/${id}/likeCourse`);
 export const updateCourse = (id, updatedCourse) => API.patch(`${"/courses"}/${id}`, updatedCourse);
 export const deleteCourse = (id) => API.delete(`${"/courses"}/${id}`);
-export const likePost = (id) => API.patch(`{"/courses"}/${id}/likeCourse`); 
+export const likePost = (id) => API.patch(`{"/courses"}/${id}/likeCourse`);
 
 
 export const signIn = (formData) => API.post('/user/signin', formData);
