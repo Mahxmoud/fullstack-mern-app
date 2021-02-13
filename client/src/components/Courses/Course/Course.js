@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-import StarIcon from '@material-ui/icons/Star';
+import ThumbUpAlt from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
@@ -31,7 +31,7 @@ const Course = ({ course, setCurrentId }) => {
                 <Typography variant="body2" color="textSecondary" component="p">{course.description}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => dispatch(likeCourse(course._id))}><StarIcon fontSize="small" />&nbsp; Like &nbsp;{course.likeCount} </Button>
+                <Button size="small" color="primary" onClick={() => dispatch(likeCourse(course._id))}><ThumbUpAlt fontSize="small" />&nbsp; Like &nbsp;{course.likes.length} </Button>
                 <Button size="small" color="primary" onClick={() => dispatch(deleteCourse(course._id))}>&nbsp;<DeleteIcon fontSize="small" /> &nbsp; Delete</Button>
             </CardActions>
         </Card>

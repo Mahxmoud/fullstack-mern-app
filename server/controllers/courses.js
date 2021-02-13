@@ -45,7 +45,7 @@ export const likeCourse = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No course with that id')
     const course = await courseModel.findById(id);
 
-    const index = course.likes.findIndex((id) => id == String(req.userId))
+    const index = course.likes.findIndex((id) => id === String(req.userId))
     if (index === -1) {
         course.likes.push(req.userId)
     } else {
