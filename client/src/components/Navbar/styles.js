@@ -17,6 +17,7 @@ export default makeStyles((theme) => ({
     },
     image: {
         marginLeft: '15px',
+        height: '60px', 
     },
     toolbar: {
         display: 'flex',
@@ -25,19 +26,21 @@ export default makeStyles((theme) => ({
     },
     profile: {
         display: 'flex',
-        justifyContent: 'space-between',
-        width: '400px',
+        justifyContent: 'space-around',
+        width: '320px',
     },
     userName: {
         display: 'flex',
         alignItems: 'center',
+        paddingLeft: '5px', 
+        paddingRight: '25px',
     },
     brandContainer: {
         display: 'flex',
         alignItems: 'center',
     },
-    purple: {
-        color: theme.palette.getContrastText(deepPurple[500]),
-        backgroundColor: deepPurple[500],
+    blue: {
+        color: '#ffffff',
+        backgroundColor: '#00ADEF',
     },
 }));
