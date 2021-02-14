@@ -26,19 +26,18 @@ const Navbar = () => {
 
         if (token) {
             const decodedToken = decode(token);
-
             if (decodedToken.exp * 1000 < new Date().getTime()) logout();
         }
-
         setUser(JSON.parse(localStorage.getItem('profile')));
+        
     }, [location]);
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <div className={classes.brandContainer}>
-                <img className={classes.image} src={Logo} alt="icon" height="60" />
+            <div className={classes.brandContainer}><Button component={Link} to="/"><img  className={classes.image} src={Logo} alt="icon" height="60" /></Button>
+                
             </div>
-            <Toolbar className={classes.toolbar}>
+            <Toolbar className={classes.toolbar} >
                 {user?.result ? (
                     <div className={classes.profile}>
                         <Avatar className={classes.blue} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
