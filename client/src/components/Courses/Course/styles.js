@@ -21,6 +21,7 @@ export default makeStyles({
         height: '100%',
         position: 'relative',
         minWidth: '200px',
+        maxWidth: '350px'
     },
     overlay: {
         position: 'absolute',

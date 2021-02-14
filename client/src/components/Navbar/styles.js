@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
         borderRadius: 15,
         margin: '30px 0',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row', 
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '10px 50px',
@@ -15,7 +15,6 @@ export default makeStyles((theme) => ({
         textDecoration: 'none',
     },
     image: {
-        marginLeft: '15px',
         height: '60px', 
     },
     toolbar: {
@@ -25,8 +24,14 @@ export default makeStyles((theme) => ({
     },
     profile: {
         display: 'flex',
-        justifyContent: 'space-around',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '320px',
+    },
+    user: {
+        display: 'flex', 
+        flexDirection: 'row',
     },
     userName: {
         display: 'flex',
@@ -37,6 +42,10 @@ export default makeStyles((theme) => ({
     brandContainer: {
         display: 'flex',
         alignItems: 'center',
+    },
+    logout: {
+        minWidth: '170px',
+        marginTop: '10px'
     },
     blue: {
         color: '#ffffff',

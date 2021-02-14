@@ -29,19 +29,20 @@ const Navbar = () => {
             if (decodedToken.exp * 1000 < new Date().getTime()) logout();
         }
         setUser(JSON.parse(localStorage.getItem('profile')));
-        
+
     }, [location]);
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <div className={classes.brandContainer}><Button component={Link} to="/"><img  className={classes.image} src={Logo} alt="icon" height="60" /></Button>
-                
+            <div className={classes.brandContainer}><Button component={Link} to="/"><img className={classes.image} src={Logo} alt="icon" height="60" /></Button>
             </div>
             <Toolbar className={classes.toolbar} >
                 {user?.result ? (
                     <div className={classes.profile}>
-                        <Avatar className={classes.blue} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
-                        <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography>
+                        <div className={classes.user}>
+                            <Avatar className={classes.blue} alt={user?.result.name} src={user?.result.imageUrl}>{user?.result.name.charAt(0)}</Avatar>
+                            <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography>
+                        </div>
                         <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                     </div>
                 ) : (
