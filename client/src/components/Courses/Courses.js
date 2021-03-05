@@ -8,17 +8,14 @@ import useStyles from './styles'
 const Courses =({ setCurrentId }) => {
     const classes = useStyles()
     const courses = useSelector((state) => state.courses) 
-
     return (
-         (
-            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+            <Grid className={classes.container} alignItems="stretch" container  spacing={2}>
                 {courses.map((course) => (
                     <Grid key={course._id} item xs={12} sm={4}>
                         <Course course={course} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}
             </Grid>
-        )
     )
 }
 

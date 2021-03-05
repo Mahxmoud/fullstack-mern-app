@@ -1,50 +1,54 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-    appBar: {
-        borderRadius: 15,
-        margin: '30px 0',
+    root: {
         display: 'flex',
-        flexDirection: 'row', 
-        justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '10px 50px',
+        justifyContent: 'center',
+        height: '100vh',
     },
-    heading: {
-        color: 'rgba(0,183,255, 1)',
-        textDecoration: 'none',
+    appBar: {
+        background: 'rgba(255, 255, 255,0.3)',
     },
-    image: {
-        height: '60px', 
+    appbarTitle: {
+        flexGrow: '1',
     },
     toolbar: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-        width: '400px',
+        position: 'static', 
+        width: '80%',
+        margin: '0 auto'
+    },
+    title: {
+        color: '#ffffff',
+        fontSize: '60px',
+    },
+    coloredTitle: {
+        color: '#00ADEF'
     },
     profile: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '320px',
     },
     user: {
-        display: 'flex', 
+        display: 'flex',
         flexDirection: 'row',
     },
     userName: {
         display: 'flex',
         alignItems: 'center',
-        paddingLeft: '5px', 
+        paddingLeft: '5px',
         paddingRight: '25px',
     },
-    brandContainer: {
-        display: 'flex',
-        alignItems: 'center',
+    hero: {
+        textAlign: 'center'
+    },
+    goDown: {
+        color: '#00ADEF',
+        fontSize: '56px'
     },
     logout: {
-        minWidth: '170px',
         marginTop: '10px'
     },
     blue: {

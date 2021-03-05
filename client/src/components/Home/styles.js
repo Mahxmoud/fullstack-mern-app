@@ -22,7 +22,56 @@ export default makeStyles((theme) => ({
             direction: 'column-reverse'
         },
     },
-    mainContainer: {
-        minWidth: '800px'
+    home: {
+        marginBottom: '20px'
+    },
+    sectionheading: {
+        fontWeight: "bold",
+        fontSize: '46px',
+        textAlign: 'center',
+        color: 'white',
+    },
+    whoWeAre: {
+        height: '100vh',
+
+    },
+    secTitle: {
+        color: '#fff',
+        fontSize: '42px',
+
+    },
+    coloredTitle: {
+        color: '#00ADEF'
+    },
+    section: {
+        background: 'rgba(255, 255, 255,0.1)',
+        height: '50vh',
+        marginTop: '10vh',
+        padding: '30px',
+        color: '#fff',
+        fontFamily: 'nunito ',
+        backdropFilter: 'blur(50xp)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    secContent: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingLeft: '20px', 
+
+
+    },
+    cardImg: {
+        height: '50vh',
+        borderRadius: '20px',
+    },
+    para: {
+        fontFamily: 'nunito',
+        fontSize: '24px',
+        paddingRight: '20px', 
+        paddingLift: '10px', 
+        color: '#fff', 
     }
 }))

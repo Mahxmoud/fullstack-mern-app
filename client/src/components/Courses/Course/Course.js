@@ -59,7 +59,6 @@ const Course = ({ course, setCurrentId }) => {
                 <div className={classes.overlay2}>
                     <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(course._id)}><MoreHorizIcon fontSize="default" /></Button></div>) : <></>}
             <div className={classes.details}>
-
                 <Typography variant="body2" color="textSecondary" component="h2">{course.tags.map((tag) => `#${tag} `)}</Typography>
             </div>
             <Typography className={classes.title} gutterBottom variant="h5" component="h2">{course.title}</Typography>
